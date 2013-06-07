@@ -1,0 +1,287 @@
+@clrFrame: #fd9800;
+@clrInner: #fff;
+@clrClip: #b90000;
+
+
+
+@_tan30: 0.57735026918962576450914878050196;
+@_sin60: 0.86602540378443864676372317075294;
+
+
+._size( @width, @height ) {
+	width: @width;
+	height: @height;
+}
+
+._position( @left, @top ) {
+	left: @left;
+	top: @top;
+}
+
+._absolute( @left, @top ) {
+	position: absolute;
+	._position( @left, @top );
+}
+
+._relative( @left, @top ) {
+	position: relative;
+	._position( @left, @top );
+}
+
+
+
+.__logo-magegyver_hexagonpart( @deg, @size ) {
+	@xSize: @size;
+	@ySize: @xSize / @_sin60;
+	@zero: @size * 0;
+
+
+	@width: 3.5 * @xSize;
+	@height: 3.5 * @ySize;
+
+	._absolute( @zero, @zero );
+	._size( @width, @height );
+
+	-webkit-transform:
+		translateX( -@width / 2 )
+		translateY( -@height / 2 )
+		rotate( 60deg + @deg )
+		translateX( @width / 2 )
+		translateY( @height / 2 )
+		translateX( -@width + 0.01 )
+		translateY( -@width * @_tan30 * 1.5 + 0.01 )
+		skewX( 0deg )
+		skewY( -30deg )
+		;
+} // .__logo-magegyver_hexagonpart( @deg, @size )
+
+
+.__logo-magegyver_hexagon( @size, @bgrClr ) {
+	.hexagon-part-1, .hexagon-part-2, .hexagon-part-3 { background: @bgrClr; }
+	.hexagon-part-1 { .__logo-magegyver_hexagonpart( 0 * 120deg, @size ); }
+	.hexagon-part-2 { .__logo-magegyver_hexagonpart( 1 * 120deg, @size ); }
+	.hexagon-part-3 { .__logo-magegyver_hexagonpart( 2 * 120deg, @size ); }
+} // .__logo-magegyver_hexagon( @size, @bgrClr )
+
+
+
+.logo-magegyver( @size, @clrFrame, @clrInner, @clrClip, @clrBgr ) {
+	@xSize: @size;
+	@ySize: @xSize / @_sin60;
+	@zero: @size * 0;
+
+	@x2Size: @xSize * 1;
+	@y2Size: @ySize * 1;
+	@x2Dist: @xSize * 0;
+	@y2Dist: @ySize * 0;
+
+
+	@width: 7.5 * @xSize;
+	@height: 10 * @ySize;
+
+	._relative( @zero, @zero );
+	._size( @width, @height );
+	background: @clrBgr;
+
+
+	.hexagon-outer {
+		._absolute( @width / 2, @height / 2 );
+		.__logo-magegyver_hexagon( @size, @clrFrame );
+	}
+
+	.hexagon-inner {
+		 ._absolute( @width / 2, @height / 2 );
+		.__logo-magegyver_hexagon( @size * 5 / 7, @clrInner );
+	}
+
+
+	.clip-inner {
+		 ._absolute( @width / 2, @height / 2 );
+
+		.block-1, .block-2, .block-3, .block-4, .block-5, .block-6 { background: @clrClip; }
+
+		.block-1 {
+			@width: 1.5 * @xSize;
+			@height: @ySize;
+
+			._absolute( @zero, @y2Dist );
+			._size( @width - 1 * @x2Dist + 0.01,
+				@height - 2 * @y2Dist );
+
+			-webkit-transform:
+				translateX( -@width / 2 )
+				translateY( -@height / 2 )
+				translateX( @width / 2 )
+				skewY( 30deg )
+				translateY( -@width / 1.125 * @_tan30 )
+				;
+		}
+
+		.block-2 {
+			@width: @xSize;
+			@height: 3.5 * @ySize;
+
+			._absolute( @x2Dist, @y2Dist );
+			._size( @width - 2 * @x2Dist,
+				@height - 2 * @y2Dist );
+
+			-webkit-transform:
+				translateX( -@width / 2 )
+				translateY( -@height / 2 )
+				translateX( @xSize )
+				translateY( @ySize * 1.25 - @width / 2 * @_tan30 )
+				;
+		}
+
+		.block-3 {
+			@width: 1.5 * @xSize;
+			@height: @ySize;
+
+			._absolute( @zero, @y2Dist );
+			._size( @width - 1 * @x2Dist + 0.01,
+				@height - 2 * @y2Dist );
+
+			-webkit-transform:
+				translateX( -@width / 2 )
+				translateY( -@height / 2 )
+				translateX( @width / 2 )
+				translateY( @ySize * 2 + @xSize / 2 * @_tan30 )
+				skewY( -30deg )
+				translateY( @width / 2 * @_tan30 )
+				;
+		}
+
+		.block-4 {
+			@width: 1.5 * @xSize;
+			@height: @ySize;
+
+			._absolute( @x2Dist, @y2Dist );
+			._size( @width - 1 * @x2Dist + 0.01,
+				@height - 2 * @y2Dist );
+
+			-webkit-transform:
+				translateX( -@width / 2 )
+				translateY( -@height / 2 )
+				translateX( -@width / 2 )
+				translateY( @ySize * 2 + @xSize / 2 * @_tan30 )
+				skewY( 30deg )
+				translateY( @width / 2 * @_tan30 )
+				;
+		}
+
+		.block-5 {
+			@width: @xSize;
+			@height: 7.5 * @ySize;
+
+			._absolute( @x2Dist, @y2Dist );
+			._size( @width - 2 * @x2Dist,
+				@height - 2 * @y2Dist );
+
+			-webkit-transform:
+				translateX( -@width / 2 )
+				translateY( -@height / 2 )
+				translateX( -@xSize )
+				translateY( -@ySize * 0.75 - @width / 2 * @_tan30 )
+				;
+		}
+
+		.block-6 {
+			@width: 4.5 * @xSize;
+			@height: @ySize;
+
+			._absolute( @x2Dist, @y2Dist );
+			._size( @width - 2 * @x2Dist,
+				@height - 2 * @y2Dist );
+
+			-webkit-transform:
+				translateX( -@width / 2 )
+				translateY( -@height / 2 )
+				translateX( @xSize * 0.75 )
+				translateY( -@ySize * 4.25 )
+				;
+		}
+	}
+
+
+	.clip-outer {
+		._absolute( @width / 2, @height / 2 );
+
+		.block-1, .block-2, .block-3, .block-4 { background: @clrClip; }
+
+		.block-1 {
+			@width: @xSize;
+			@height: 8 * @ySize;
+
+			._absolute( @x2Dist, @y2Dist );
+			._size( @width - 2 * @x2Dist,
+				@height - 2 * @y2Dist );
+
+			-webkit-transform:
+				translateX( -@width / 2 )
+				translateY( -@height / 2 )
+				translateX( 2.5 * @xSize )
+				translateY( -@ySize / 2 - @width / 2 * @_tan30 )
+				;
+		}
+
+		.block-2 {
+			@width: 3 * @xSize;
+			@height: @ySize;
+
+			._absolute( @zero, @y2Dist );
+			._size( @width - 1 * @x2Dist + 0.01,
+				@height - 2 * @y2Dist );
+
+			-webkit-transform:
+				translateX( -@width / 2 )
+				translateY( -@height / 2 )
+				translateX( @width / 2 )
+				translateY( @ySize * 2.5 + @xSize / 2 * @_tan30 )
+				skewY( -30deg )
+				translateY( @width / 2 * @_tan30 )
+				;
+		}
+
+		.block-3 {
+			@width: 3 * @xSize;
+			@height: @ySize;
+
+			._absolute( @x2Dist, @y2Dist );
+			._size( @width - 1 * @x2Dist + 0.01,
+				@height - 2 * @y2Dist );
+
+			-webkit-transform:
+				translateX( -@width / 2 )
+				translateY( -@height / 2 )
+				translateX( -@width / 2 )
+				translateY( @ySize * 2.5 + @xSize / 2 * @_tan30 )
+				skewY( 30deg )
+				translateY( @width / 2 * @_tan30 )
+				;
+		}
+
+		.block-4 {
+			@width: @xSize;
+			@height: 8 * @ySize;
+
+			._absolute( @x2Dist, @y2Dist );
+			._size( @width - 2 * @x2Dist,
+				@height - 2 * @y2Dist );
+
+			-webkit-transform:
+				translateX( -@width / 2 )
+				translateY( -@height / 2 )
+				translateX( -2.5 * @xSize )
+				translateY( -@ySize / 2 - @width / 2 * @_tan30 )
+				;
+		}
+	}
+}
+
+
+
+
+
+.logo-magegyver {
+	.logo-magegyver( 2cm, @clrFrame, @clrInner, @clrClip, #000 );
+}

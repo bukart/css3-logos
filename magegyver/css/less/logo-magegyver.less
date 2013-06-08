@@ -1,7 +1,25 @@
-@clrFrame: #fd9800;
-@clrInner: #fff;
-@clrClip: #b90000;
+body {
+	background: #000;
+	font-family: 'courier new';
+}
 
+h1 {
+	color: #fff;
+}
+
+.logo-stage {
+	._relative( 0px, 0px );
+
+	background: #eee;
+	text-align: center;
+	padding: 50px;
+	margin: 50px;
+
+	h2 {
+		._absolute( 0px, 0px );
+		margin: 0px;
+	}
+}
 
 
 @_tan30: 0.57735026918962576450914878050196;
@@ -282,6 +300,287 @@
 
 
 
-.logo-magegyver {
-	.logo-magegyver( 2cm, @clrFrame, @clrInner, @clrClip, #000 );
+.__logo-magegyver_textoutline( @inner, @outer ) {
+
+	text-shadow:
+
+		-4px -4px  1px @inner,
+		-3px -4px  1px @inner,
+		-2px -4px  1px @inner,
+		-1px -4px  1px @inner,
+		 0px -4px  1px @inner,
+		 1px -4px  1px @inner,
+		 2px -4px  1px @inner,
+		 3px -4px  1px @inner,
+		 4px -4px  1px @inner,
+
+		-4px -3px  1px @inner,
+		 4px -3px  1px @inner,
+		-4px -2px  1px @inner,
+		 4px -2px  1px @inner,
+		-4px -1px  1px @inner,
+		 4px -1px  1px @inner,
+		-4px -0px  1px @inner,
+		 4px -0px  1px @inner,
+		-4px  1px  1px @inner,
+		 4px  1px  1px @inner,
+		-4px  2px  1px @inner,
+		 4px  2px  1px @inner,
+		-4px  3px  1px @inner,
+		 4px  3px  1px @inner,
+
+		-4px  4px  1px @inner,
+		-3px  4px  1px @inner,
+		-2px  4px  1px @inner,
+		-1px  4px  1px @inner,
+		 0px  4px  1px @inner,
+		 1px  4px  1px @inner,
+		 2px  4px  1px @inner,
+		 3px  4px  1px @inner,
+		 4px  4px  1px @inner,
+
+
+
+		-9px -9px  1px @outer,
+		-8px -9px  1px @outer,
+		-7px -9px  1px @outer,
+		-6px -9px  1px @outer,
+		-5px -9px  1px @outer,
+		-4px -9px  1px @outer,
+		-3px -9px  1px @outer,
+		-2px -9px  1px @outer,
+		-1px -9px  1px @outer,
+		 0px -9px  1px @outer,
+		 1px -9px  1px @outer,
+		 2px -9px  1px @outer,
+		 3px -9px  1px @outer,
+		 4px -9px  1px @outer,
+		 5px -9px  1px @outer,
+		 6px -9px  1px @outer,
+		 7px -9px  1px @outer,
+		 8px -9px  1px @outer,
+		 9px -9px  1px @outer,
+
+		-9px -8px  1px @outer,
+		 9px -8px  1px @outer,
+		-9px -7px  1px @outer,
+		 9px -7px  1px @outer,
+		-9px -6px  1px @outer,
+		 9px -6px  1px @outer,
+		-9px -5px  1px @outer,
+		 9px -5px  1px @outer,
+		-9px -4px  1px @outer,
+		 9px -4px  1px @outer,
+		-9px -3px  1px @outer,
+		 9px -3px  1px @outer,
+		-9px -2px  1px @outer,
+		 9px -2px  1px @outer,
+		-9px -1px  1px @outer,
+		 9px -1px  1px @outer,
+		-9px -0px  1px @outer,
+		 9px -0px  1px @outer,
+		-9px  1px  1px @outer,
+		 9px  1px  1px @outer,
+		-9px  2px  1px @outer,
+		 9px  2px  1px @outer,
+		-9px  3px  1px @outer,
+		 9px  3px  1px @outer,
+		-9px  4px  1px @outer,
+		 9px  4px  1px @outer,
+		-9px  5px  1px @outer,
+		 9px  5px  1px @outer,
+		-9px  6px  1px @outer,
+		 9px  6px  1px @outer,
+		-9px  7px  1px @outer,
+		 9px  7px  1px @outer,
+		-9px  8px  1px @outer,
+		 9px  8px  1px @outer,
+
+		-9px  9px  1px @outer,
+		-8px  9px  1px @outer,
+		-7px  9px  1px @outer,
+		-6px  9px  1px @outer,
+		-5px  9px  1px @outer,
+		-4px  9px  1px @outer,
+		-3px  9px  1px @outer,
+		-2px  9px  1px @outer,
+		-1px  9px  1px @outer,
+		 0px  9px  1px @outer,
+		 1px  9px  1px @outer,
+		 2px  9px  1px @outer,
+		 3px  9px  1px @outer,
+		 4px  9px  1px @outer,
+		 5px  9px  1px @outer,
+		 6px  9px  1px @outer,
+		 7px  9px  1px @outer,
+		 8px  9px  1px @outer,
+		 9px  9px  1px @outer,
+
+		;
+}
+
+
+.__logo-magegyver_text( @text, @inner, @outer, @content, @size ) {
+	@zero: 0 * @size;
+
+	font-weight: bold;
+	// display:inline-block;
+	color: @text;
+	font-family: 'Cinzel';
+	font-size: 7 * @size;
+	line-height: 11.5 * @size;
+	vertical-align: middle;
+	letter-spacing: -@size / 2;
+
+
+	content: @content;
+	color: @outer;
+	.__logo-magegyver_textoutline( @inner, @text );
+}
+
+
+._logo-magegyver( @size, @clrFrame, @clrInner, @clrClip, @clrBgr ) {
+
+	._logo-magegyver(
+		@size,
+		@clrFrame,
+		@clrInner,
+		@clrClip,
+		@clrBgr,
+
+		@clrFrame,
+		@clrInner,
+		@clrClip,
+
+		@clrFrame,
+		@clrInner,
+		@clrClip
+	);
+
+}
+
+
+._logo-magegyver(
+	@size,
+	@clrFrame, @clrInner, @clrClip, @clrBgr,
+	@txtAText, @txtAInner, @txtAOuter,
+	@txtBText, @txtBInner, @txtBOuter
+) {
+
+	display: inline-block;
+	.logo-magegyver( @size, @clrFrame, @clrInner, @clrClip, @clrBgr );
+
+
+	&:before {
+		.__logo-magegyver_text(
+			@txtAText,
+			@txtAInner,
+			@txtAOuter,
+			'Mage ',
+			@size
+		);
+
+		position: absolute;
+		top: 0px;
+		right: 7.5 * @size;
+	}
+
+	&:after {
+		.__logo-magegyver_text(
+			@txtBText,
+			@txtBInner,
+			@txtBOuter,
+			'Gyver ',
+			@size
+		);
+
+		position: absolute;
+		top: 0px;
+		left: 7.5 * @size + 0.75 * @size;
+	}
+}
+
+
+
+
+@clrFrame: #fd9800;
+@clrInner: #fff;
+@clrClip: #b90000;
+
+
+.logo-magegyver-A {
+	@size: 150px/7.5;
+	._logo-magegyver(
+		@size,
+		@clrFrame, @clrInner, @clrClip, transparent,
+	);
+}
+
+.logo-magegyver-B {
+	@size: 150px/7.5;
+	._logo-magegyver(
+		@size,
+		@clrFrame, @clrInner, @clrClip, transparent,
+		@clrClip, @clrInner, @clrFrame,
+		@clrFrame, @clrInner, @clrClip,
+	 );
+}
+
+.logo-magegyver-C {
+	@size: 150px/7.5;
+	._logo-magegyver(
+		@size,
+		@clrFrame, @clrInner, @clrClip, transparent,
+		@clrFrame, @clrInner, @clrClip,
+		@clrClip, @clrInner, @clrFrame,
+	 );
+}
+
+.logo-magegyver-D {
+	@size: 150px/7.5;
+	._logo-magegyver(
+		@size,
+		@clrFrame, @clrInner, @clrClip, transparent,
+		@clrClip, @clrInner, @clrFrame,
+		@clrClip, @clrInner, @clrFrame,
+	 );
+}
+
+
+.logo-magegyver-E {
+	@size: 150px/7.5;
+	._logo-magegyver(
+		@size,
+		@clrClip, @clrInner, @clrFrame, transparent,
+	);
+}
+
+.logo-magegyver-F {
+	@size: 150px/7.5;
+	._logo-magegyver(
+		@size,
+		@clrClip, @clrInner, @clrFrame, transparent,
+		@clrFrame, @clrInner, @clrClip,
+		@clrClip, @clrInner, @clrFrame,
+	);
+}
+
+.logo-magegyver-G {
+	@size: 150px/7.5;
+	._logo-magegyver(
+		@size,
+		@clrClip, @clrInner, @clrFrame, transparent,
+		@clrClip, @clrInner, @clrFrame,
+		@clrFrame, @clrInner, @clrClip,
+	);
+}
+
+.logo-magegyver-H {
+	@size: 150px/7.5;
+	._logo-magegyver(
+		@size,
+		@clrClip, @clrInner, @clrFrame, transparent,
+		@clrFrame, @clrInner, @clrClip,
+		@clrFrame, @clrInner, @clrClip,
+	);
 }
